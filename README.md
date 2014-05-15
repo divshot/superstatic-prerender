@@ -22,7 +22,7 @@ search engine juice.
 {
   "prerender": {
     "refetch": 7,
-    "whitelist": ["/articles/**"]
+    "blacklist": ["/account/**"]
   }
 }
 ```
