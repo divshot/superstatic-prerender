@@ -15,7 +15,7 @@ module.exports = function (options) {
     decorateResponseObject(req, res);
     
     prerender.whitelisted(req.service.config.whitelist);
-    // prerender.blacklisted(options.blacklist);
+    prerender.blacklisted(req.service.config.blacklist);
     
     prerender(req, res, next);
   };
