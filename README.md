@@ -4,6 +4,9 @@ Superstatic Prerender
 A prerendering service to allow static AJAX apps to get that sweet sweet
 search engine juice.
 
+[![NPM Module](http://img.shields.io/npm/v/superstatic-prerender.svg?style=flat)](https://npmjs.org/package/superstatic-prerender)
+[![Build Status](http://img.shields.io/travis/divshot/superstatic-prerender.svg?style=flat)](https://travis-ci.org/divshot/superstatic-prerender)
+
 ## Client Configuration
 
 ### Options

@@ -1,0 +1,40 @@
+{
+  "name": "superstatic-prerender",
+  "version": "0.1.0",
+  "description": "A prerendering service to allow static AJAX apps to get proper search engine juice",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && mocha test/",
+    "lint": "jshint index.js test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/divshot/superstatic-prerender.git"
+  },
+  "keywords": [
+    "divshot",
+    "superstatic",
+    "prerender",
+    "ajax",
+    "seo"
+  ],
+  "author": "Divshot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/divshot/superstatic-prerender/issues"
+  },
+  "homepage": "https://github.com/divshot/superstatic-prerender",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "connect": "~2.16.2",
+    "jshint": "~2.5.1",
+    "mocha": "~1.19.0",
+    "mocksy": "^0.1.7",
+    "supertest": "~0.12.1"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "prerender-node": "~1.0.1",
+    "response-send": "0.0.1"
+  }
+}
