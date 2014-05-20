@@ -10,7 +10,14 @@ describe('prerender service', function () {
   var app;
   
   beforeEach(function (done) {
-    app = connect();
+    app = connect()
+      .use(function (req, res, next) {
+        req.service = {
+          name: 'prerender',
+          config: {}
+        };
+        next();
+      });
     server.start(done);
   });
   
@@ -69,8 +76,27 @@ describe('prerender service', function () {
       .end(done);
   });
   
+  it('sets the whitelist values on prerender', function (done) {
+    app
+      .use(function (req, res, next) {
+        req.service.config.whitelist = '/prerender';
+        next();
+      })
+      .use(render({
+        host: 'http://localhost:8888'
+      }));
+    
+    request(app)
+      .get('/')
+      .set('user-agent', bot)
+      .expect(function (data) {
+        expect(data.res.body).to.equal(undefined);
+      })
+      .end(done);
+  });
+  
   it('sets the blacklist values on prerender');
-  it('sets the whitelist values on prerender');
+  
   it('sets the refetch value from the config');
   
 });
