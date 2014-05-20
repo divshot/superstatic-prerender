@@ -19,12 +19,10 @@ describe('prerender service', function () {
   });
   
   it('skips the middleware if request method is not GET', function (done) {
-    app.use(render());
-    
-    request(app)
-      .post('/render')
-      .expect(404)
-      .end(done);
+    render().matchesRequest({method: 'POST', headers: {}}, function (matches) {
+      expect(matches).to.equal(false);
+      done();
+    });
   });
   
   it('makes a request to a custom prerender server with a host set', function (done) {
@@ -70,5 +68,9 @@ describe('prerender service', function () {
       .expect('<html><head></head><body></body></html>')
       .end(done);
   });
+  
+  it('sets the blacklist values on prerender');
+  it('sets the whitelist values on prerender');
+  it('sets the refetch value from the config');
   
 });

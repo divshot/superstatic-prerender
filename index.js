@@ -4,15 +4,13 @@ var prerender = require('prerender-node');
 var send = require('response-send');
 var url = require('url');
 
-var exports = module.exports = function (options) {
+module.exports = function (options) {
   options = options || {};
   
   prerender.set('prerenderServiceUrl', options.host);
   prerender.set('prerenderToken', options.token);
   
-  return function (req, res, next) {
-    if (req.method !== 'GET') return next();
-      
+  var render = function (req, res, next) {
     decorateRequestObject(req);
     decorateResponseObject(req, res);
     
@@ -22,7 +20,13 @@ var exports = module.exports = function (options) {
     prerender(req, res, next);
   };
   
+  render.matchesRequest = function (req, done) {
+    done(prerender.shouldShowPrerenderedPage(req));
+  };
+  
+  return render;
 };
+
 
 function decorateRequestObject (req) {
   req.protocol = (req.connection.encrypted) ? 'https' : 'http';
