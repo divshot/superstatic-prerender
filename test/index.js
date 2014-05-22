@@ -25,12 +25,12 @@ describe('prerender service', function () {
     server.stop(done);
   });
   
-  it('skips the middleware if request method is not GET', function (done) {
-    render().matchesRequest({method: 'POST', headers: {}}, function (matches) {
-      expect(matches).to.equal(false);
-      done();
-    });
-  });
+  // it('skips the middleware if request method is not GET', function (done) {
+  //   render().matchesRequest({method: 'POST', headers: {}}, function (matches) {
+  //     expect(matches).to.equal(false);
+  //     done();
+  //   });
+  // });
   
   it('makes a request to a custom prerender server with a host set', function (done) {
     app.use(render({
