@@ -21,6 +21,7 @@ module.exports = function (options) {
   };
   
   render.matchesRequest = function (req, done) {
+    console.log('matching prerender request for ' + req.url + ' with method ' + req.method);
     done(prerender.shouldShowPrerenderedPage(req));
   };
   
