@@ -21,8 +21,6 @@ module.exports = function (options) {
   };
   
   render.matchesRequest = function (req, done) {
-    console.log('matching prerender request for ' + req.url + ' with method ' + req.method);
-    console.log('matched: ' + prerender.shouldShowPrerenderedPage(req));
     done(prerender.shouldShowPrerenderedPage(req));
   };
   
@@ -48,6 +46,11 @@ function decorateRequestObject (req) {
 function decorateResponseObject (req, res) {
   res.req = req;
   res.send = send;
+  
+  res.status = function (code) {
+    res.statusCode = code;
+    return res;
+  };
   
   res.set = function (headers) {
     _(headers).each(function (value, name) {
