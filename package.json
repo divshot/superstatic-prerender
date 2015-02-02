@@ -1,6 +1,6 @@
 {
   "name": "superstatic-prerender",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A prerendering service to allow static AJAX apps to get proper search engine juice",
   "main": "index.js",
   "scripts": {
@@ -25,16 +25,16 @@
   },
   "homepage": "https://github.com/divshot/superstatic-prerender",
   "devDependencies": {
-    "chai": "~1.9.1",
+    "chai": "^1.10.0",
     "connect": "~2.16.2",
-    "jshint": "~2.5.1",
-    "mocha": "~1.19.0",
-    "mocksy": "^0.1.7",
-    "supertest": "~0.12.1"
+    "jshint": "^2.6.0",
+    "mocha": "^2.1.0",
+    "mocksy": "^1.0.0",
+    "supertest": "^0.15.0"
   },
   "dependencies": {
     "lodash": "~2.4.1",
-    "prerender-node": "1.1.0",
+    "prerender-node": "^1.2.1",
     "response-send": "0.0.1"
   }
 }

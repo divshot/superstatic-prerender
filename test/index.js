@@ -26,10 +26,9 @@ describe('prerender service', function () {
   });
   
   it('skips the middleware if request method is not GET', function (done) {
-    render().matchesRequest({method: 'POST', headers: {}}, function (matches) {
-      expect(matches).to.equal(false);
-      done();
-    });
+    var matches = render().matches({method: 'POST', headers: {}});
+    expect(matches).to.equal(false);
+    done();
   });
   
   it('makes a request to a custom prerender server with a host set', function (done) {

@@ -20,8 +20,8 @@ module.exports = function (options) {
     prerender(req, res, next);
   };
   
-  render.matchesRequest = function (req, done) {
-    done(prerender.shouldShowPrerenderedPage(req));
+  render.matches = function (req) {
+    return prerender.shouldShowPrerenderedPage(req);
   };
   
   return render;
