@@ -1,6 +1,6 @@
 {
   "name": "superstatic-prerender",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A prerendering service to allow static AJAX apps to get proper search engine juice",
   "main": "index.js",
   "scripts": {
